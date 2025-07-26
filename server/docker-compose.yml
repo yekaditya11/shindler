@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  backend:
+    build: .
+    ports:
+      - "${APP_PORT:-8000}:${APP_PORT:-8000}"
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - .:/app
+    networks:
+      - backend_network
+
+networks:
+  backend_network:
+    driver: bridge

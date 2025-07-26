@@ -1,0 +1,53 @@
+{
+  "id": "chart_1753514138",
+  "title": "New tradejh",
+  "description": "",
+  "timestamp": "2025-07-26T12:45:38.788462",
+  "chart_data": {
+    "title": {
+      "text": "Unsafe Events Reported Monthly",
+      "left": "center"
+    },
+    "tooltip": {
+      "trigger": "axis",
+      "axisPointer": {
+        "type": "shadow"
+      }
+    },
+    "xAxis": {
+      "type": "category",
+      "data": [
+        "Jan 2025",
+        "Feb 2025",
+        "Mar 2025",
+        "Apr 2025",
+        "May 2025",
+        "Jun 2025"
+      ],
+      "axisLabel": {
+        "rotate": 45
+      }
+    },
+    "yAxis": {
+      "type": "value",
+      "name": "Total Events Reported"
+    },
+    "series": [
+      {
+        "name": "Unsafe Events",
+        "type": "bar",
+        "data": [
+          770,
+          1511,
+          1647,
+          1814,
+          2328,
+          1091
+        ],
+        "itemStyle": {
+          "color": "#5470C6"
+        }
+      }
+    ]
+  }
+}

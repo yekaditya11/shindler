@@ -1,0 +1,1889 @@
+{
+  "unsafe_events_ei_tech": {
+    "event_id": {
+      "data_type": "integer",
+      "min": "8513",
+      "max": "17669",
+      "description": "Unique identifier for each event record."
+    },
+    "reporter_name": {
+      "data_type": "character varying",
+      "unique_values": [
+        "Mugeshbabu Murugan",
+        "Kamlesh Prasad",
+        "Sukhpreet Singh",
+        "Pinninti Gopi",
+        "Thamizharasan Kesavan"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 1296 unique values",
+      "description": "Name of the individual who reported the unsafe event."
+    },
+    "manager_name": {
+      "data_type": "character varying",
+      "unique_values": [
+        "Vineet Srivastava",
+        "Kishor Tupe",
+        "Hemant Mhatre",
+        "Karthikeyan Rajendran",
+        "Rahul Kumar"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 286 unique values",
+      "description": "Name of the manager associated with the reported event."
+    },
+    "branch": {
+      "data_type": "character varying",
+      "unique_values": [
+        "North Delhi",
+        "Thane & KDMC",
+        "Mumbai 1",
+        "Goa",
+        "Bangalore 1"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 27 unique values",
+      "description": "Branch location where the unsafe event occurred."
+    },
+    "reported_date": {
+      "data_type": "date",
+      "min": "2025-01-01",
+      "max": "2025-06-17",
+      "description": "Date when the event was reported."
+    },
+    "reporter_id": {
+      "data_type": "character varying",
+      "unique_values": [
+        "719029.0",
+        "708707.0",
+        "20130106.0",
+        "20064940.0",
+        "20083034.0"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 1317 unique values",
+      "description": "Unique identifier for the reporter."
+    },
+    "date_of_unsafe_event": {
+      "data_type": "date",
+      "min": "2023-05-07",
+      "max": "2025-06-17",
+      "description": "Date when the unsafe event actually occurred."
+    },
+    "time": {
+      "data_type": "character varying",
+      "unique_values": [
+        "12:00AM"
+      ],
+      "unique_count": 1,
+      "description": "Time when the report was made. This field may be defaulted for some records."
+    },
+    "time_of_unsafe_event": {
+      "data_type": "character varying",
+      "unique_values": [
+        "10:30",
+        "10:00",
+        "11:00",
+        "11:30",
+        "17:20"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 956 unique values",
+      "description": "Time when the unsafe event took place."
+    },
+    "unsafe_event_type": {
+      "data_type": "character varying",
+      "unique_values": [
+        "Unsafe Condition",
+        "Unsafe Act",
+        "Near Miss"
+      ],
+      "unique_count": 3,
+      "description": "Type of unsafe event: condition, act, or near miss."
+    },
+    "business_details": {
+      "data_type": "character varying",
+      "unique_values": [
+        "Service Maintenance",
+        "Repair",
+        "New installation",
+        "Modernisation",
+        "Factory"
+      ],
+      "unique_count": 5,
+      "description": "Details of the business function or activity related to the unsafe event."
+    },
+    "site_reference": {
+      "data_type": "text",
+      "unique_values": [
+        "Hari Hara",
+        "Iris villa",
+        "Sarathcity Capital Mall",
+        "Forgot",
+        "One west"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 6313 unique values",
+      "description": "Name of the site where the unsafe event occurred."
+    },
+    "unsafe_event_location": {
+      "data_type": "character varying",
+      "unique_values": [
+        "Other",
+        "Hoistway",
+        "Pit",
+        "Landing",
+        "Machine Room"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 11 unique values",
+      "description": "Location within the site where the unsafe event occurred."
+    },
+    "product_type": {
+      "data_type": "character varying",
+      "unique_values": [
+        "S3 series",
+        "Other product",
+        "S5 series",
+        "Old Sch products Traction",
+        "Old Sch product MRL"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 12 unique values",
+      "description": "Type of product involved in the unsafe event."
+    },
+    "employee_id": {
+      "data_type": "character varying",
+      "unique_values": [
+        "719029",
+        "708707",
+        "20130106",
+        "20064940",
+        "20083034"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 1298 unique values",
+      "description": "Unique identifier for the employee involved in the unsafe event."
+    },
+    "employee_name": {
+      "data_type": "character varying",
+      "unique_values": [
+        "Mugeshbabu Murugan",
+        "Kamlesh Prasad",
+        "Sukhpreet Singh",
+        "Pinninti Gopi",
+        "Thamizharasan Kesavan"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 1281 unique values",
+      "description": "Name of the employee involved in the unsafe event."
+    },
+    "subcontractor_company_name": {
+      "data_type": "character varying",
+      "unique_values": [
+        "IPS",
+        "Don’t know",
+        "Ips",
+        "Shree jagdamba enterprises",
+        "N J ARUN CONTRACTOR"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 36 unique values",
+      "description": "Name of the subcontractor company involved in the event, if applicable."
+    },
+    "subcontractor_id": {
+      "data_type": "character varying",
+      "unique_values": [
+        "20119370",
+        "Don’t know",
+        "1271513",
+        "110691",
+        "1319707"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 33 unique values",
+      "description": "Unique identifier for the subcontractor involved in the event, if applicable."
+    },
+    "subcontractor_city": {
+      "data_type": "character varying",
+      "note": "No non-null values found",
+      "description": "City where the subcontractor is located, if applicable."
+    },
+    "subcontractor_name": {
+      "data_type": "character varying",
+      "unique_values": [
+        "NA                                                                                                                                                                                                      *NA",
+        "Mallesh D S                                                                                                                                                                                             *110595",
+        "Don’t know                                                                                                                                                                                              *Don’t know",
+        "Sachin pawar                                                                                                                                                                                            *110235",
+        "Satish Jadhav                                                                                                                                                                                           *110691"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 50 unique values",
+      "description": "Name of the subcontractor involved, if applicable."
+    },
+    "kg_name": {
+      "data_type": "character varying",
+      "note": "No non-null values found",
+      "description": "Name of the KG (if applicable), related to the event."
+    },
+    "country_name": {
+      "data_type": "character varying",
+      "note": "No non-null values found",
+      "description": "Country where the event occurred."
+    },
+    "division": {
+      "data_type": "character varying",
+      "note": "No non-null values found",
+      "description": "Division related to the event, if applicable."
+    },
+    "department": {
+      "data_type": "character varying",
+      "note": "No non-null values found",
+      "description": "Department related to the event, if applicable."
+    },
+    "city": {
+      "data_type": "character varying",
+      "note": "No non-null values found",
+      "description": "City related to the event, if applicable."
+    },
+    "sub_area": {
+      "data_type": "character varying",
+      "note": "No non-null values found",
+      "description": "Sub-area where the event occurred, if applicable."
+    },
+    "district": {
+      "data_type": "character varying",
+      "note": "No non-null values found",
+      "description": "District related to the event, if applicable."
+    },
+    "zone": {
+      "data_type": "character varying",
+      "note": "No non-null values found",
+      "description": "Zone where the event occurred, if applicable."
+    },
+    "serious_near_miss": {
+      "data_type": "character varying",
+      "note": "No non-null values found",
+      "description": "Indicator if the event was a serious near miss."
+    },
+    "unsafe_act": {
+      "data_type": "character varying",
+      "unique_values": [
+        "Unsafe Condition",
+        "Unsafe Act",
+        "Near Miss"
+      ],
+      "unique_count": 3,
+      "description": "Type of unsafe act associated with the event."
+    },
+    "unsafe_act_other": {
+      "data_type": "text",
+      "note": "No non-null values found",
+      "description": "Description of other unsafe acts, if applicable."
+    },
+    "unsafe_condition": {
+      "data_type": "text",
+      "unique_values": [
+        "Other",
+        "Electrical hazards",
+        "Poor lighting",
+        "Falling objects hazard",
+        "Tripping hazard"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 23 unique values",
+      "description": "Description of unsafe conditions involved in the event."
+    },
+    "unsafe_condition_other": {
+      "data_type": "text",
+      "note": "No non-null values found",
+      "description": "Description of other unsafe conditions, if applicable."
+    },
+    "work_stopped": {
+      "data_type": "character varying",
+      "unique_values": [
+        "NO",
+        "YES"
+      ],
+      "unique_count": 2,
+      "description": "Indicates whether work was stopped as a result of the event."
+    },
+    "stop_work_nogo_violation": {
+      "data_type": "character varying",
+      "unique_values": [
+        "Safe Hoistway Access",
+        "Fall Protection",
+        "Log Out / Tag Out",
+        "Hoisting / Rigging"
+      ],
+      "unique_count": 4,
+      "description": "Specific violation related to the event that caused work to stop."
+    },
+    "nogo_violation_detail": {
+      "data_type": "text",
+      "unique_values": [
+        "No",
+        "Yes",
+        "NO",
+        "Water in pit",
+        "Na"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 220 unique values",
+      "description": "Details of any violation related to 'No Go' work conditions."
+    },
+    "stop_work_duration": {
+      "data_type": "character varying",
+      "unique_values": [
+        "One Day or Less",
+        "More than one day"
+      ],
+      "unique_count": 2,
+      "description": "Duration for which the work was stopped due to the unsafe event."
+    },
+    "other_safety_issues": {
+      "data_type": "text",
+      "unique_values": [
+        "No",
+        "Water in pit",
+        "Pit light not working",
+        "Water seepage in pit",
+        "Inform to railway"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 526 unique values",
+      "description": "Other safety-related issues noted during the event."
+    },
+    "comments_remarks": {
+      "data_type": "text",
+      "unique_values": [
+        "No",
+        "Yes",
+        "NO",
+        "Water in pit",
+        "Na"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 220 unique values",
+      "description": "Additional remarks or comments related to the unsafe event."
+    },
+    "event_requires_sanction": {
+      "data_type": "character varying",
+      "unique_values": [
+        "NO",
+        "YES"
+      ],
+      "unique_count": 2,
+      "description": "Indicates whether the event requires sanction or further approval."
+    },
+    "action_description_1": {
+      "data_type": "text",
+      "unique_values": [
+        "Pit light not working",
+        "Shaft light not working",
+        "Water in pit",
+        "In ground floor landing door near by customer electric wiring cable",
+        "Poor lighting"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 7252 unique values",
+      "description": "Description of the actions taken or required to resolve the unsafe event."
+    },
+    "action_description_2": {
+      "data_type": "text",
+      "note": "No non-null values found",
+      "description": "Additional description of actions taken, if applicable."
+    },
+    "action_description_3": {
+      "data_type": "text",
+      "note": "No non-null values found",
+      "description": "Further description of actions taken, if applicable."
+    },
+    "action_description_4": {
+      "data_type": "text",
+      "note": "No non-null values found",
+      "description": "Further description of actions taken, if applicable."
+    },
+    "action_description_5": {
+      "data_type": "text",
+      "note": "No non-null values found",
+      "description": "Further description of actions taken, if applicable."
+    },
+    "image": {
+      "data_type": "character varying",
+      "unique_values": [
+        "0",
+        "heic.jpg",
+        "1000532129.jpg",
+        "png.jpg",
+        "1000250645.jpg"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 7044 unique values",
+      "description": "Image associated with the unsafe event."
+    },
+    "status": {
+      "data_type": "character varying",
+      "unique_values": [
+        "0",
+        "SAP",
+        "IGNORED"
+      ],
+      "unique_count": 3,
+      "description": "Current status of the event report (e.g., processed, ignored, etc.)."
+    },
+    "region": {
+      "data_type": "character varying",
+      "unique_values": [
+        "WR 2",
+        "WR 1",
+        "SR 1",
+        "NR 1",
+        "SR 2"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 6 unique values",
+      "description": "Geographical region where the event occurred."
+    },
+    "db_uploaded_date": {
+      "data_type": "timestamp without time zone",
+      "description": "Timestamp when the event record was uploaded to the database."
+    },
+    "id": {
+      "data_type": "integer",
+      "min": "1",
+      "max": "9161",
+      "description": "Unique identifier for each row in the table."
+    },
+    "created_at": {
+      "data_type": "timestamp with time zone",
+      "min": "2025-07-21 07:06:15.989363+00:00",
+      "max": "2025-07-21 07:06:44.079790+00:00",
+      "description": "Timestamp when the event record was created."
+    },
+    "updated_at": {
+      "data_type": "timestamp with time zone",
+      "note": "No non-null values found",
+      "description": "Timestamp of when the record was last updated."
+    }
+  },
+    "unsafe_events_ni_tct": {
+    "reporting_id": {
+      "data_type": "integer",
+      "min": "9057",
+      "max": "12402171",
+      "description": "Unique identifier for each reporting record."
+    },
+    "status_key": {
+      "data_type": "character varying",
+      "unique_values": [
+        "Pending",
+        "SAP"
+      ],
+      "unique_count": 2,
+      "description": "Status key indicating the current processing status of the report."
+    },
+    "status": {
+      "data_type": "character varying",
+      "unique_values": [
+        "Pending",
+        "Approved"
+      ],
+      "unique_count": 2,
+      "description": "Status of the report (e.g., pending or approved)."
+    },
+    "location_key": {
+      "data_type": "integer",
+      "min": "5001",
+      "max": "5065",
+      "description": "identifier for each location."
+    },
+    "location": {
+      "data_type": "character varying",
+      "unique_values": [
+        "5010 - Surat",
+        "5048 - Bangalore 2",
+        "5002 - Thane & KDMC",
+        "5041 - Bangalore 1",
+        "5001 - Mumbai 1"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 39 unique values",
+      "description": "Name of the location where the report is generated."
+    },
+    "branch_key": {
+      "data_type": "integer",
+      "min": "5001",
+      "max": "5065",
+      "description": "Unique identifier for each branch."
+    },
+    "no": {
+      "data_type": "integer",
+      "min": "-5065",
+      "max": "-5001",
+      "description": "A numeric code related to the report's branch or location."
+    },
+    "branch_name": {
+      "data_type": "character varying",
+      "unique_values": [
+        "Surat",
+        "Bangalore 2",
+        "Bangalore 1",
+        "Thane & KDMC",
+        "Ahmedabad & MP"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 27 unique values",
+      "description": "Name of the branch associated with the report."
+    },
+    "region_key": {
+      "data_type": "character varying",
+      "unique_values": [
+        "West 2",
+        "South 1",
+        "West 1",
+        "South 2",
+        "North 1"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 6 unique values",
+      "description": "Key identifier for the region related to the report."
+    },
+    "region": {
+      "data_type": "character varying",
+      "unique_values": [
+        "WR 2",
+        "SR 1",
+        "WR 1",
+        "SR 2",
+        "NR 1"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 6 unique values",
+      "description": "Region where the unsafe event or report is located."
+    },
+    "reporter_sap_id": {
+      "data_type": "character varying",
+      "unique_values": [
+        "20002284",
+        "20096994",
+        "20002673",
+        "20114422",
+        "20003165"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 917 unique values",
+      "description": "SAP identifier of the reporter."
+    },
+    "reporter_name": {
+      "data_type": "character varying",
+      "unique_values": [
+        "MILANKUMAR DALPATBHAI VASAVA",
+        "Karan Pandey",
+        "Manuji Thakor",
+        "Dheeraj Kumar",
+        "Akshay Jagtap"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 911 unique values",
+      "description": "Name of the reporter associated with the unsafe event."
+    },
+    "designation_key": {
+      "data_type": "character varying",
+      "unique_values": [
+        "FT",
+        "PE",
+        "FTC",
+        "SCF",
+        "IPS"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 6 unique values",
+      "description": "Key identifier for the reporter's designation."
+    },
+    "designation": {
+      "data_type": "character varying",
+      "unique_values": [
+        "Fitter",
+        "Project Engineer",
+        "FTC",
+        "Subcontractor Fitter",
+        "IPS"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 6 unique values",
+      "description": "Designation of the reporter or employee."
+    },
+    "gl_id_key": {
+      "data_type": "character varying",
+      "unique_values": [
+        "5422.0",
+        "5486.0",
+        "4005.0",
+        "5840.0",
+        "680.0"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 124 unique values",
+      "description": "Key identifier for the GL (General Ledger) record."
+    },
+    "gl_id": {
+      "data_type": "character varying",
+      "unique_values": [
+        "manjunatha annajigowda",
+        "Rajesh Kumar",
+        "Sudarshan Ambadipudi",
+        "Shaival Gajjar",
+        "J. Manickavasagam"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 110 unique values",
+      "description": "GL record associated with the unsafe event."
+    },
+    "pe_id_key": {
+      "data_type": "character varying",
+      "unique_values": [
+        "20001907",
+        "17880",
+        "4098",
+        "17245",
+        "5438"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 77 unique values",
+      "description": "Key identifier for the PE (Project Engineer) record."
+    },
+    "pe_id": {
+      "data_type": "character varying",
+      "unique_values": [
+        "Manoj Magar",
+        "Nagaraju Madaiah",
+        "Shravan Yadav",
+        "Yogesh Kumar",
+        "Davidson Navroj"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 68 unique values",
+      "description": "Project Engineer associated with the unsafe event."
+    },
+    "created_on": {
+      "data_type": "timestamp without time zone",
+      "min": "2025-01-24 17:19:45.733000",
+      "max": "2025-06-17 16:41:13.826000",
+      "description": "Timestamp when the record was created."
+    },
+    "date_and_time_of_unsafe_event": {
+      "data_type": "timestamp without time zone",
+      "min": "2024-11-08 15:58:00",
+      "max": "2025-12-12 09:00:00",
+      "description": "Date and time when the unsafe event occurred."
+    },
+    "type_of_unsafe_event_key": {
+      "data_type": "character varying",
+      "unique_values": [
+        "ET03",
+        "ET02",
+        "ET01"
+      ],
+      "unique_count": 3,
+      "description": "Key identifier for the type of unsafe event."
+    },
+    "type_of_unsafe_event": {
+      "data_type": "character varying",
+      "unique_values": [
+        "Unsafe Condition",
+        "Unsafe Act",
+        "Near Miss"
+      ],
+      "unique_count": 3,
+      "description": "Type of unsafe event: condition, act, or near miss."
+    },
+    "unsafe_event_details_key": {
+      "data_type": "character varying",
+      "unique_values": [
+        "UE25",
+        "UE22",
+        "UE24",
+        "UE18",
+        "UE19"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 22 unique values",
+      "description": "Key identifier for the specific details of the unsafe event."
+    },
+    "unsafe_event_details": {
+      "data_type": "text",
+      "unique_values": [
+        "Other Unsafe Condition",
+        "Housekeeping Issues",
+        "Electrical Hazards",
+        "Tripping Hazard",
+        "Falling Objects Hazard"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 22 unique values",
+      "description": "Detailed description of the unsafe event."
+    },
+    "action_related_to_high_risk_situation_key": {
+      "data_type": "character varying",
+      "unique_values": [
+        "YES",
+        "NO"
+      ],
+      "unique_count": 2,
+      "description": "Indicates if the action taken is related to a high-risk situation."
+    },
+    "action_related_to_high_risk_situation": {
+      "data_type": "character varying",
+      "unique_values": [
+        "Yes",
+        "No"
+      ],
+      "unique_count": 2,
+      "description": "Indicates if the action was taken in response to a high-risk situation."
+    },
+    "business_details_key": {
+      "data_type": "character varying",
+      "unique_values": [
+        "NI",
+        "MOD"
+      ],
+      "unique_count": 2,
+      "description": "Key identifier for the business type related to the unsafe event."
+    },
+    "business_details": {
+      "data_type": "character varying",
+      "unique_values": [
+        "New Installation",
+        "Modernisation"
+      ],
+      "unique_count": 2,
+      "description": "Business type: New Installation or Modernisation."
+    },
+    "site_name": {
+      "data_type": "text",
+      "unique_values": [
+        "Stalwart insignia",
+        "Avadh ercole",
+        "Woj",
+        "Avadh Ercole",
+        "L&T Kharkopar"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 2255 unique values",
+      "description": "Name of the site where the unsafe event occurred."
+    },
+    "site_reference_key": {
+      "data_type": "character varying",
+      "unique_values": [
+        "LC11",
+        "LC02",
+        "LC04",
+        "LC01",
+        "LC07"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 11 unique values",
+      "description": "Key reference for the site location."
+    },
+    "site_reference": {
+      "data_type": "character varying",
+      "unique_values": [
+        "Other",
+        "Landing",
+        "Pit",
+        "Hoistway",
+        "Warehouse / Logistic Area"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 11 unique values",
+      "description": "Reference to the specific area or location within the site."
+    },
+    "product_type_key": {
+      "data_type": "character varying",
+      "unique_values": [
+        "ES1",
+        "3300",
+        "ES5",
+        "5500",
+        "5500AP"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 9 unique values",
+      "description": "Key identifier for the product type involved in the event."
+    },
+    "product_type": {
+      "data_type": "character varying",
+      "unique_values": [
+        "ES1",
+        "3300",
+        "ES 5.0",
+        "5500",
+        "5500AP"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 9 unique values",
+      "description": "Type of product involved in the unsafe event."
+    },
+    "persons_involved": {
+      "data_type": "text",
+      "unique_values": [
+        "No",
+        "Nitin Patil",
+        "Ashish choudhary",
+        "Antisebastian",
+        "2"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 1954 unique values",
+      "description": "Persons involved in the unsafe event, if applicable."
+    },
+    "work_was_stopped_key": {
+      "data_type": "character varying",
+      "unique_values": [
+        "NO",
+        "YES"
+      ],
+      "unique_count": 2,
+      "description": "Indicates if work was stopped due to the unsafe event."
+    },
+    "work_was_stopped": {
+      "data_type": "character varying",
+      "unique_values": [
+        "No",
+        "Yes"
+      ],
+      "unique_count": 2,
+      "description": "Whether work was stopped due to the unsafe event."
+    },
+    "work_stopped_hours": {
+      "data_type": "character varying",
+      "unique_values": [
+        "0.0",
+        "1.0",
+        "2.0",
+        "4.0",
+        "3.0"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 26 unique values",
+      "description": "Number of hours work was stopped due to the unsafe event."
+    },
+    "no_go_violation_key": {
+      "data_type": "character varying",
+      "unique_values": [
+        "NG2",
+        "NG1",
+        "NG4",
+        "NG3",
+        "NG6"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 6 unique values",
+      "description": "Key identifier for the 'No Go' violation associated with the event."
+    },
+    "no_go_violation": {
+      "data_type": "character varying",
+      "unique_values": [
+        "Safe Hoistway Access",
+        "Fall Protection",
+        "Hoisting / Rigging",
+        "Log Out / Tag Out",
+        "Subcon’s Certification"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 6 unique values",
+      "description": "Description of the 'No Go' violation associated with the unsafe event."
+    },
+    "job_no": {
+      "data_type": "character varying",
+      "unique_values": [
+        "11784677.0",
+        "19156372.0",
+        "11819388.0",
+        "20100140.0",
+        "11832750.0"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 1675 unique values",
+      "description": "Job number associated with the unsafe event."
+    },
+    "additional_comments": {
+      "data_type": "text",
+      "unique_values": [
+        "Inform to customer",
+        "No",
+        "Informed to customer",
+        "Falling hazard",
+        "Water in pit"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 3357 unique values",
+      "description": "Additional comments or remarks regarding the unsafe event."
+    },
+    "has_attachment": {
+      "data_type": "boolean",
+      "note": "No non-null values found",
+      "description": "Indicates if the report has any attached files."
+    },
+    "attachment": {
+      "data_type": "character varying",
+      "note": "No non-null values found",
+      "description": "File associated with the unsafe event report, if any."
+    },
+    "db_uploaded_date": {
+      "data_type": "timestamp without time zone",
+      "description": "Timestamp when the event record was uploaded to the database."
+    },
+    "id": {
+      "data_type": "integer",
+      "min": "1",
+      "max": "4804",
+      "description": "Unique identifier for each row in the table."
+    },
+    "created_at": {
+      "data_type": "timestamp with time zone",
+      "min": "2025-07-17 12:38:40.759855+00:00",
+      "max": "2025-07-17 12:38:50.006059+00:00",
+      "description": "Timestamp when the report record was created."
+    },
+    "updated_at": {
+      "data_type": "timestamp with time zone",
+      "note": "No non-null values found",
+      "description": "Timestamp of when the record was last updated."
+    }
+  },
+    "unsafe_events_srs": {
+    "event_id": {
+      "data_type": "character varying",
+      "unique_values": [
+        "UE2025IND333338",
+        "UE2025IND333346",
+        "UE2025IND333347",
+        "UE2025IND333352",
+        "UE2025IND333400"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 8183 unique values",
+      "description": "Unique identifier for each unsafe event record."
+    },
+    "reporter_name": {
+      "data_type": "character varying",
+      "unique_values": [
+        "JoyalFrank",
+        "Johndevanand",
+        "BiditMondal",
+        "AnkitKumar",
+        "JeevanandhamMohan"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 879 unique values",
+      "description": "Name of the reporter who reported the unsafe event."
+    },
+    "reported_date": {
+      "data_type": "date",
+      "min": "2025-01-06",
+      "max": "2025-06-23",
+      "description": "Date when the unsafe event was reported."
+    },
+    "reporter_id": {
+      "data_type": "character varying",
+      "unique_values": [
+        "20130924",
+        "714721",
+        "703525",
+        "704295",
+        "20095739"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 900 unique values",
+      "description": "Unique identifier for the reporter."
+    },
+    "date_of_unsafe_event": {
+      "data_type": "date",
+      "min": "2025-01-01",
+      "max": "2025-06-21",
+      "description": "Date when the unsafe event occurred."
+    },
+    "time_of_unsafe_event": {
+      "data_type": "character varying",
+      "unique_values": [
+        "10:00:00",
+        "11:00:00",
+        "15:00:00",
+        "12:00:00",
+        "13:00:00"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 4579 unique values",
+      "description": "Time when the unsafe event occurred."
+    },
+    "unsafe_event_type": {
+      "data_type": "character varying",
+      "unique_values": [
+        "Unsafe Condition",
+        "Unsafe Act",
+        "Near Miss",
+        "Unsafe Act,Unsafe Condition",
+        "Unsafe Condition,Unsafe Act"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 10 unique values",
+      "description": "Type of unsafe event (e.g., Unsafe Condition, Unsafe Act, Near Miss)."
+    },
+    "business_details": {
+      "data_type": "character varying",
+      "unique_values": [
+        "Service maintenance",
+        "New installation",
+        "Repair",
+        "Other",
+        "Modernisation"
+      ],
+      "unique_count": 5,
+      "description": "Business activity or service type related to the unsafe event."
+    },
+    "site_reference": {
+      "data_type": "text",
+      "unique_values": [
+        "NMIAL",
+        "SP Joyville",
+        "IKEA",
+        "Embassy",
+        "Sarai Kale Khan Station (NCRTC)"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 5926 unique values",
+      "description": "Reference name for the site where the unsafe event occurred."
+    },
+    "unsafe_event_location": {
+      "data_type": "character varying",
+      "unique_values": [
+        "Hoistway",
+        "Landing",
+        "Others",
+        "Pit",
+        "Car top"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 10 unique values",
+      "description": "Location within the site where the unsafe event occurred."
+    },
+    "product_type": {
+      "data_type": "character varying",
+      "unique_values": [
+        "S3 Series",
+        "S5 Series",
+        "Other product",
+        "S97 Series (ESC)",
+        "S7 Series"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 12 unique values",
+      "description": "Type of product involved in the unsafe event."
+    },
+    "employee_id": {
+      "data_type": "character varying",
+      "unique_values": [
+        "708707.0",
+        "709220.0",
+        "20100881.0",
+        "719975.0",
+        "709263.0"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 2460 unique values",
+      "description": "Unique identifier for the employee involved in the unsafe event."
+    },
+    "employee_name": {
+      "data_type": "character varying",
+      "unique_values": [
+        "Kamlesh Prasad",
+        "Md. Anbar Hossain",
+        "Awanish Mishra",
+        "Ansar Maniyar",
+        "Ashokkumar Gupta"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 2318 unique values",
+      "description": "Name of the employee involved in the unsafe event."
+    },
+    "subcontractor_company_name": {
+      "data_type": "character varying",
+      "unique_values": [
+        "Integrated Personnel Services Ltd",
+        "Shree Enterprises",
+        "RAJESH KUMAR RAM KISHOR MOURYA",
+        "P Selvam",
+        "Shree Siddhivinayak Enterprises"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 204 unique values",
+      "description": "Name of the subcontractor company involved, if applicable."
+    },
+    "subcontractor_id": {
+      "data_type": "character varying",
+      "unique_values": [
+        "1280053.0",
+        "1317781.0",
+        "1241566.0",
+        "1170359.0",
+        "1198750.0"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 203 unique values",
+      "description": "Unique identifier for the subcontractor involved, if applicable."
+    },
+    "subcontractor_city": {
+      "data_type": "character varying",
+      "unique_values": [
+        "Delhi 1",
+        "Mumbai",
+        "Infra TRD",
+        "Jaipur",
+        "Delhi 2"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 49 unique values",
+      "description": "City where the subcontractor is located, if applicable."
+    },
+    "subcontractor_name": {
+      "data_type": "character varying",
+      "unique_values": [
+        "Mohd Touseef",
+        "Girish G",
+        "Naresh KUMAR",
+        "Manoj Kumar",
+        "Pavan Kumar"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 556 unique values",
+      "description": "Name of the subcontractor involved, if applicable."
+    },
+    "kg_name": {
+      "data_type": "character varying",
+      "unique_values": [
+        "IND"
+      ],
+      "unique_count": 1,
+      "description": "Name of the KG (if applicable), related to the event."
+    },
+    "country_name": {
+      "data_type": "character varying",
+      "unique_values": [
+        "India"
+      ],
+      "unique_count": 1,
+      "description": "Country where the unsafe event occurred."
+    },
+    "division": {
+      "data_type": "character varying",
+      "unique_values": [
+        "Schindler India PVT Ltd. (5000)",
+        "India Elevator factory (8200)"
+      ],
+      "unique_count": 2,
+      "description": "Division related to the unsafe event."
+    },
+    "department": {
+      "data_type": "character varying",
+      "unique_values": [
+        "AM-EI-BANG (80563951)",
+        "AM-EI-DELHI1 (80845942)",
+        "S/C IND (10000685)",
+        "TL-EI-AHM (80385804)",
+        "AM-EI (80617610)"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 353 unique values",
+      "description": "Department related to the unsafe event."
+    },
+    "city": {
+      "data_type": "character varying",
+      "unique_values": [
+        "Bangalore 1 (5041)",
+        "North Delhi (5021)",
+        "INFRA/TRD (5018)",
+        "Bangalore 2 (5048)",
+        "South Delhi (5030)"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 53 unique values",
+      "description": "City where the unsafe event occurred."
+    },
+    "sub_area": {
+      "data_type": "character varying",
+      "unique_values": [
+        "5041.0",
+        "5021.0",
+        "5048.0",
+        "5030.0",
+        "5042.0"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 38 unique values",
+      "description": "Sub-area where the unsafe event occurred, if applicable."
+    },
+    "district": {
+      "data_type": "character varying",
+      "note": "No non-null values found",
+      "description": "District related to the unsafe event, if applicable."
+    },
+    "zone": {
+      "data_type": "character varying",
+      "unique_values": [
+        "SCH IND & SA",
+        "S/C IND",
+        "SC-IND"
+      ],
+      "unique_count": 3,
+      "description": "Zone where the unsafe event occurred."
+    },
+    "serious_near_miss": {
+      "data_type": "character varying",
+      "unique_values": [
+        "No",
+        "Yes"
+      ],
+      "unique_count": 2,
+      "description": "Indicates whether the event was a serious near miss."
+    },
+    "unsafe_act": {
+      "data_type": "text",
+      "unique_values": [
+        "Other,",
+        "Lack or improper use of PPE,",
+        "Operating without following adequate procedure,",
+        "Failure to inform about unsafe situation,",
+        "Fall hazard exposure,"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 69 unique values",
+      "description": "Description of the unsafe acts involved in the event."
+    },
+    "unsafe_act_other": {
+      "data_type": "text",
+      "unique_values": [
+        "Forget to announce face way during main switch on /off.",
+        "JH cover was not fixed",
+        "Old materials kept in machine room have created tripping hazards.",
+        "when enter in car top on checking the Ost test the car is 1 step down from the floor level, Employee is not assuming the risk of car top entry, after performing the task guide to employee, employee accept the fault, report the fearless reporting.",
+        "1.faulty hand tool"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 410 unique values",
+      "description": "Other unsafe acts reported in the event."
+    },
+    "unsafe_condition": {
+      "data_type": "text",
+      "unique_values": [
+        "Other,",
+        "Poor lighting,",
+        "Housekeeping issue,",
+        "Electrical hazards,",
+        "Tripping hazard,"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 213 unique values",
+      "description": "Conditions that contributed to the unsafe event."
+    },
+    "unsafe_condition_other": {
+      "data_type": "text",
+      "unique_values": [
+        "Water in pit",
+        "ARD not working",
+        "CCU box cover found open",
+        "Material kept in cartop",
+        "Pit light not working"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 1006 unique values",
+      "description": "Other unsafe conditions related to the event."
+    },
+    "work_stopped": {
+      "data_type": "character varying",
+      "unique_values": [
+        "No",
+        "Yes"
+      ],
+      "unique_count": 2,
+      "description": "Indicates whether work was stopped due to the unsafe event."
+    },
+    "stop_work_nogo_violation": {
+      "data_type": "character varying",
+      "unique_values": [
+        "No",
+        "Yes"
+      ],
+      "unique_count": 2,
+      "description": "Indicates if a 'No Go' violation was identified during the event."
+    },
+    "nogo_violation_detail": {
+      "data_type": "text",
+      "unique_values": [
+        "Fall Protection,",
+        "Jumper,",
+        "Safe Hoistway Access,",
+        "Subcons Certificate,",
+        "Jumper, Subcons Certificate,"
+      ],
+      "unique_count": 5,
+      "description": "Details about 'No Go' violations during the unsafe event."
+    },
+    "stop_work_duration": {
+      "data_type": "character varying",
+      "unique_values": [
+        "One Day or Less",
+        "More than one day"
+      ],
+      "unique_count": 2,
+      "description": "Duration for which work was stopped due to the unsafe event."
+    },
+    "other_safety_issues": {
+      "data_type": "text",
+      "unique_values": [
+        "No",
+        "NO",
+        "no",
+        "defective material lying on cartop",
+        "Pit light not working"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 470 unique values",
+      "description": "Other safety-related issues identified during the event."
+    },
+    "comments_remarks": {
+      "data_type": "text",
+      "unique_values": [
+        "Counselling Done",
+        "No",
+        "Educated at site",
+        "Immediately stopped the work and cleared the same",
+        "Lift machine room housekeeping was not properly done. Informed FT about the same. Immediately FT has done proper housekeeping of the lift machine room & then started further installation activity."
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 478 unique values",
+      "description": "Additional comments or actions taken regarding the unsafe event."
+    },
+    "event_requires_sanction": {
+      "data_type": "character varying",
+      "unique_values": [
+        "No",
+        "Yes"
+      ],
+      "unique_count": 2,
+      "description": "Indicates if the event requires further sanction or approval."
+    },
+    "action_description_1": {
+      "data_type": "text",
+      "unique_values": [
+        "Pit light not working",
+        "Housekeeping issue",
+        "Educated the risk and Informed Engineer to close the points at the earliest.",
+        "Customer communication given",
+        "Poor lighting"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 6283 unique values",
+      "description": "Description of the actions taken in response to the unsafe event."
+    },
+    "action_description_2": {
+      "data_type": "text",
+      "unique_values": [
+        "3 Point contact not made while using the Pit ladder",
+        "Customer side main breaker not visible",
+        "Discussed with customer to arrange the new hook."
+      ],
+      "unique_count": 3,
+      "description": "Additional descriptions of the actions taken."
+    },
+    "action_description_3": {
+      "data_type": "text",
+      "note": "No non-null values found",
+      "description": "Further description of actions, if applicable."
+    },
+    "action_description_4": {
+      "data_type": "text",
+      "note": "No non-null values found",
+      "description": "Further description of actions, if applicable."
+    },
+    "action_description_5": {
+      "data_type": "text",
+      "note": "No non-null values found",
+      "description": "Further description of actions, if applicable."
+    },
+    "branch": {
+      "data_type": "character varying",
+      "unique_values": [
+        "Bangalore 1",
+        "North Delhi",
+        "INFRA / TRD",
+        "Bangalore 2",
+        "South Delhi"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 29 unique values",
+      "description": "Branch where the unsafe event occurred."
+    },
+    "region": {
+      "data_type": "character varying",
+      "unique_values": [
+        "SR 1",
+        "WR 2",
+        "NR 1",
+        "NR 2",
+        "WR 1"
+      ],
+      "unique_count": 5,
+      "note": "Showing top 5 of 7 unique values",
+      "description": "Region where the unsafe event occurred."
+    },
+    "db_uploaded_date": {
+      "data_type": "timestamp without time zone",
+
+      "description": "Timestamp when the record was uploaded to the database."
+    },
+    "id": {
+      "data_type": "integer",
+      "min": "1",
+      "max": "8183",
+      "description": "Unique identifier for each row in the table."
+    },
+    "created_at": {
+      "data_type": "timestamp with time zone",
+      "min": "2025-07-17 12:34:08.826602+00:00",
+      "max": "2025-07-17 12:34:23.776288+00:00",
+      "description": "Timestamp when the record was created."
+    },
+    "updated_at": {
+      "data_type": "timestamp with time zone",
+      "note": "No non-null values found",
+      "description": "Timestamp when the record was last updated."
+    }
+  },
+
+  "unsafe_events_ni_tct_augmented": {
+    "reporting_id": {
+      "data_type": "integer",
+      "min": "9057",
+      "max": "12402171",
+      "unique_count": 4765,
+      "description": "Unique identifier for each unsafe event report in the NI TCT system."
+    },
+    "status_key": {
+      "data_type": "character varying",
+      "unique_values": ["Pending", "SAP"],
+      "unique_count": 2,
+      "description": "Key identifier for the status of the unsafe event report."
+    },
+    "status": {
+      "data_type": "character varying",
+      "unique_values": ["Pending", "Approved"],
+      "unique_count": 2,
+      "description": "Current status of the unsafe event report processing."
+    },
+    "location_key": {
+      "data_type": "integer",
+      "min": "5001",
+      "max": "5065",
+      "unique_count": 39,
+      "description": "identifier for the location where the unsafe event occurred."
+    },
+    "location": {
+      "data_type": "character varying",
+      "unique_values": ["5021 - North Delhi", "5002 - Thane & KDMC", "5011 - Mumbai 2", "5003 - Pune 1", "5043 - Tamil Nadu"],
+      "unique_count": 39,
+      "note": "Showing top 5 of 39 unique values",
+      "description": "Detailed location description with code and name where the unsafe event occurred."
+    },
+    "branch_key": {
+      "data_type": "integer",
+      "min": "5001",
+      "max": "5065",
+      "unique_count": 30,
+      "description": "Unique key identifier for the branch associated with the unsafe event."
+    },
+    "no": {
+      "data_type": "integer",
+      "min": "-5065",
+      "max": "-5001",
+      "unique_count": 30,
+      "description": "Negative branch number identifier used for internal referencing."
+    },
+    "branch_name": {
+      "data_type": "character varying",
+      "unique_values": ["North Delhi", "Thane & KDMC", "Mumbai 2", "Pune 1", "Tamil Nadu"],
+      "unique_count": 27,
+      "note": "Showing top 5 of 27 unique values",
+      "description": "Name of the branch where the unsafe event occurred."
+    },
+    "region_key": {
+      "data_type": "character varying",
+      "unique_values": ["North 1", "West 1", "West 2", "South 1", "North 2"],
+      "unique_count": 6,
+      "note": "Showing top 5 of 6 unique values",
+      "description": "Key identifier for the regional classification of the branch."
+    },
+    "region": {
+      "data_type": "character varying",
+      "unique_values": ["NR 1", "WR 1", "WR 2", "SR 1", "NR 2"],
+      "unique_count": 6,
+      "note": "Showing top 5 of 6 unique values",
+      "description": "Regional code where the unsafe event occurred (NR=North Region, WR=West Region, SR=South Region)."
+    },
+    "reporter_sap_id": {
+      "data_type": "integer",
+      "min": "700485",
+      "max": "20159175",
+      "unique_count": 917,
+      "description": "SAP system identifier for the employee who reported the unsafe event."
+    },
+    "reporter_name": {
+      "data_type": "character varying",
+      "unique_values": ["Sanjay Kashyap.", "Zishan Ansari", "Ashish Appaji Kadam", "Sandip Thate", "Venkatesan Mani"],
+      "unique_count": 911,
+      "note": "Showing top 5 of 911 unique values",
+      "description": "Name of the individual who reported the unsafe event."
+    },
+    "designation_key": {
+      "data_type": "character varying",
+      "unique_values": ["FT", "PE", "FTC", "SCF", "GL"],
+      "unique_count": 6,
+      "note": "Showing top 5 of 6 unique values",
+      "description": "Key code for the job designation of the reporter (FT=Fitter, PE=Project Engineer, etc.)."
+    },
+    "designation": {
+      "data_type": "character varying",
+      "unique_values": ["Fitter", "Project Engineer", "FTC", "Subcontractor Fitter", "Group Leader"],
+      "unique_count": 6,
+      "note": "Showing top 5 of 6 unique values",
+      "description": "Job designation or role of the person who reported the unsafe event."
+    },
+    "gl_id_key": {
+      "data_type": "numeric",
+      "min": "1.0",
+      "max": "20139443.0",
+      "unique_count": 124,
+      "note": "98.9% completeness - some missing values",
+      "description": "Key identifier for the Group Leader associated with the unsafe event, if applicable."
+    },
+    "gl_id": {
+      "data_type": "character varying",
+      "unique_values": ["Pravindra Tiwari", "Sharmishta Chakravorty", "Mehul Mali", "Kiran Shinde", "Balasubramanian R"],
+      "unique_count": 110,
+      "note": "Showing top 5 of 110 unique values - 96.2% completeness",
+      "description": "Name of the Group Leader associated with the unsafe event, if applicable."
+    },
+    "pe_id_key": {
+      "data_type": "character varying",
+      "unique_values": ["6570", "16010", "4633", "Tara Chand", "Kamlesh Kumar"],
+      "unique_count": 77,
+      "note": "Showing top 5 of 77 unique values - 30.3% completeness",
+      "description": "Key identifier for the Project Engineer associated with the unsafe event, if applicable."
+    },
+    "pe_id": {
+      "data_type": "character varying",
+      "unique_values": ["Anil Kumar", "IYYAPPAN E", "Md Arafat", "Shravan Yadav", "Selva Chandran"],
+      "unique_count": 68,
+      "note": "Showing top 5 of 68 unique values - 26.9% completeness",
+      "description": "Name of the Project Engineer associated with the unsafe event, if applicable."
+    },
+    "created_on": {
+      "data_type": "timestamp without time zone",
+      "min": "2025-06-17 15:54:39.652000",
+      "max": "2025-06-17 16:41:13.826000",
+      "unique_count": 4765,
+      "description": "Date and time when the unsafe event report was created in the system."
+    },
+    "date_and_time_of_unsafe_event": {
+      "data_type": "timestamp without time zone",
+      "min": "2025-06-16 10:00:00",
+      "max": "2025-06-17 16:44:00",
+      "unique_count": 4075,
+      "description": "Date and time when the actual unsafe event occurred."
+    },
+    "type_of_unsafe_event_key": {
+      "data_type": "character varying",
+      "unique_values": ["ET03", "ET01", "ET02"],
+      "unique_count": 3,
+      "description": "Key code for the type of unsafe event (ET01=Near Miss, ET02=Unsafe Act, ET03=Unsafe Condition)."
+    },
+    "type_of_unsafe_event": {
+      "data_type": "character varying",
+      "unique_values": ["Unsafe Condition", "Near Miss", "Unsafe Act"],
+      "unique_count": 3,
+      "description": "Classification of the type of unsafe event that occurred."
+    },
+    "unsafe_event_details_key": {
+      "data_type": "character varying",
+      "unique_values": ["UE17", "UE25", "UE22", "UE19", "UE18"],
+      "unique_count": 22,
+      "note": "Showing top 5 of 22 unique values - 95.0% completeness",
+      "description": "Key code for specific details about the unsafe event category."
+    },
+    "unsafe_event_details": {
+      "data_type": "character varying",
+      "unique_values": ["Pit Access Hazard", "Other Unsafe Condition", "Housekeeping Issues", "Falling Objects Hazard", "Tripping Hazard"],
+      "unique_count": 22,
+      "note": "Showing top 5 of 22 unique values - 95.0% completeness",
+      "description": "Detailed description of the specific unsafe event category or hazard type."
+    },
+    "action_related_to_high_risk_situation_key": {
+      "data_type": "character varying",
+      "unique_values": ["YES", "NO"],
+      "unique_count": 2,
+      "note": "4.7% completeness - mostly missing values",
+      "description": "Key indicating whether the action was related to a high-risk situation, if applicable."
+    },
+    "action_related_to_high_risk_situation": {
+      "data_type": "character varying",
+      "unique_values": ["Yes", "No"],
+      "unique_count": 2,
+      "note": "4.7% completeness - mostly missing values",
+      "description": "Indicates whether the action taken was related to a high-risk situation, if applicable."
+    },
+    "business_details_key": {
+      "data_type": "character varying",
+      "unique_values": ["NI", "MOD"],
+      "unique_count": 2,
+      "description": "Key code for the type of business operation (NI=New Installation, MOD=Modernisation)."
+    },
+    "business_details": {
+      "data_type": "character varying",
+      "unique_values": ["New Installation", "Modernisation"],
+      "unique_count": 2,
+      "description": "Type of business operation being performed when the unsafe event occurred."
+    },
+    "site_name": {
+      "data_type": "character varying",
+      "unique_values": ["A1/71 Rohini sector 8", "Bhumi World Mall E2", "Dr.manish puranik", "Babu sha", "B5/91 sabderjung enclave"],
+      "unique_count": 2255,
+      "note": "Showing top 5 of 2255 unique values - 96.6% completeness",
+      "description": "Name or address of the specific site where the unsafe event occurred."
+    },
+    "site_reference_key": {
+      "data_type": "character varying",
+      "unique_values": ["LC04", "LC01", "LC11", "LC02", "LC08"],
+      "unique_count": 11,
+      "note": "Showing top 5 of 11 unique values",
+      "description": "Key code for the specific location reference within the site."
+    },
+    "site_reference": {
+      "data_type": "character varying",
+      "unique_values": ["Pit", "Hoistway", "Other", "Landing", "Office Area"],
+      "unique_count": 11,
+      "note": "Showing top 5 of 11 unique values",
+      "description": "Specific location or area within the site where the unsafe event occurred."
+    },
+    "product_type_key": {
+      "data_type": "character varying",
+      "unique_values": ["ES1", "ES3", "5500", "ES5", "3300"],
+      "unique_count": 9,
+      "note": "Showing top 5 of 9 unique values",
+      "description": "Key code for the type of elevator product involved in the unsafe event."
+    },
+    "product_type": {
+      "data_type": "character varying",
+      "unique_values": ["ES1", "ES3", "5500", "ES 5.0", "3300"],
+      "unique_count": 9,
+      "note": "Showing top 5 of 9 unique values",
+      "description": "Type of elevator product or model involved in the unsafe event."
+    },
+    "persons_involved": {
+      "data_type": "text",
+      "unique_values": ["Zishan Ansari, Gokul Panada", "Sandip Thate", "1st floor ift Shaft inside water leakage", "Barish ki wajah se pani bhar gaya site pe", "Praveen & Gowtham"],
+      "unique_count": 1954,
+      "note": "Showing top 5 of 1954 unique values - 69.1% completeness",
+      "description": "Names of individuals involved in or affected by the unsafe event, if applicable."
+    },
+    "work_was_stopped_key": {
+      "data_type": "character varying",
+      "unique_values": ["YES", "NO"],
+      "unique_count": 2,
+      "description": "Key indicating whether work was stopped as a result of the unsafe event."
+    },
+    "work_was_stopped": {
+      "data_type": "character varying",
+      "unique_values": ["Yes", "No"],
+      "unique_count": 2,
+      "description": "Indicates whether work was stopped as a result of the unsafe event."
+    },
+    "work_stopped_hours": {
+      "data_type": "numeric",
+      "min": "0.0",
+      "max": "80004.0",
+      "unique_count": 26,
+      "note": "100.0% completeness",
+      "description": "Number of hours work was stopped due to the unsafe event."
+    },
+    "no_go_violation_key": {
+      "data_type": "character varying",
+      "unique_values": ["NG2", "NG1", "NG3", "NG4", "NG6"],
+      "unique_count": 6,
+      "note": "Showing top 5 of 6 unique values - 15.8% completeness",
+      "description": "Key code for the type of No-Go violation, if applicable."
+    },
+    "no_go_violation": {
+      "data_type": "character varying",
+      "unique_values": ["Safe Hoistway Access", "Fall Protection", "Log Out / Tag Out", "Hoisting / Rigging", "Subcon's Certification"],
+      "unique_count": 6,
+      "note": "Showing top 5 of 6 unique values - 15.8% completeness",
+      "description": "Description of the No-Go safety violation that occurred, if applicable."
+    },
+    "job_no": {
+      "data_type": "numeric",
+      "min": "1182976.0",
+      "max": "88285935.0",
+      "unique_count": 1675,
+      "note": "93.5% completeness",
+      "description": "Job number or work order identifier associated with the unsafe event."
+    },
+    "additional_comments": {
+      "data_type": "text",
+      "unique_values": ["Water in pit\nInform to coustomer", "Due to rain, water seepage and leakage is found in shaft from smoke window.", "We told the customer that we needed a store room area close because there was a risk of falling while removing our materials.", "Pit cleaning required found as condition after cleaning done", "Informed to customer and customer stopped the 1st floor RCC water curing work"],
+      "unique_count": 3357,
+      "note": "Showing top 5 of 3357 unique values - 77.2% completeness",
+      "description": "Additional comments or detailed description of the unsafe event and actions taken."
+    },
+    "has_attachment": {
+      "data_type": "boolean",
+      "unique_values": [false, true],
+      "unique_count": 2,
+      "description": "Indicates whether the unsafe event report has any file attachments."
+    },
+    "attachment": {
+      "data_type": "text",
+      "note": "No non-null values found",
+      "description": "File attachment associated with the unsafe event report, if applicable."
+    },
+    "weather_weather_condition": {
+      "data_type": "character varying",
+      "unique_values": ["Cloudy", "Drizzle", "Thunderstorm", "Light Rain", "Heavy Rain"],
+      "unique_count": 10,
+      "note": "Showing top 5 of 10 unique values",
+      "description": "Weather condition at the time of the unsafe event occurrence."
+    },
+    "weather_temperature_celsius": {
+      "data_type": "numeric",
+      "min": "10.1",
+      "max": "40.0",
+      "unique_count": 296,
+      "description": "Temperature in Celsius at the time of the unsafe event occurrence."
+    },
+    "weather_humidity_percent": {
+      "data_type": "float",
+      "min": "40.0",
+      "max": "95.0",
+      "unique_count": 551,
+      "description": "Humidity percentage at the time of the unsafe event occurrence."
+    },
+    "weather_weather_severity_score": {
+      "data_type": "integer",
+      "min": "1",
+      "max": "9",
+      "unique_count": 9,
+      "description": "Weather severity score from 1 (mild) to 9 (severe) indicating impact on work conditions."
+    },
+    "employee_employee_age": {
+      "data_type": "integer",
+      "min": "22",
+      "max": "60",
+      "unique_count": 39,
+      "description": "Age of the employee involved in or reporting the unsafe event."
+    },
+    "employee_experience_level": {
+      "data_type": "character varying",
+      "unique_values": ["Mid-Level (5-10 years)", "Entry Level (0-2 years)", "Expert (15+ years)", "Junior (2-5 years)", "Senior (10-15 years)"],
+      "unique_count": 5,
+      "description": "Experience level category of the employee involved in the unsafe event."
+    },
+    "employee_years_of_experience": {
+      "data_type": "numeric",
+      "min": "0.0",
+      "max": "30.0",
+      "unique_count": 301,
+      "description": "Total years of work experience of the employee involved in the unsafe event."
+    },
+    "employee_safety_training_hours": {
+      "data_type": "integer",
+      "min": "8",
+      "max": "120",
+      "unique_count": 113,
+      "description": "Total hours of safety training completed by the employee involved in the unsafe event."
+    },
+    "employee_last_training_date": {
+      "data_type": "character varying",
+      "unique_values": ["2024-11-04", "2024-06-14", "2024-09-29", "2024-12-25", "2025-02-08"],
+      "unique_count": 700,
+      "note": "Showing top 5 of 700 unique values",
+      "description": "Date when the employee last completed safety training."
+    },
+    "employee_shift_type": {
+      "data_type": "character varying",
+      "unique_values": ["Weekend Shift", "Day Shift", "Night Shift", "Rotating Shift"],
+      "unique_count": 4,
+      "description": "Type of work shift the employee was working during the unsafe event."
+    },
+    "site_site_risk_category": {
+      "data_type": "character varying",
+      "unique_values": ["High Risk", "Medium Risk", "Critical Risk"],
+      "unique_count": 3,
+      "description": "Risk category classification of the site where the unsafe event occurred."
+    },
+    "site_last_safety_audit_days": {
+      "data_type": "integer",
+      "min": "30",
+      "max": "730",
+      "unique_count": 701,
+      "description": "Number of days since the last safety audit was conducted at the site."
+    },
+    "workload_workload_category": {
+      "data_type": "character varying",
+      "unique_values": ["High", "Normal", "Low"],
+      "unique_count": 3,
+      "description": "Workload intensity category at the time of the unsafe event."
+    },
+    "workload_team_size": {
+      "data_type": "integer",
+      "min": "2",
+      "max": "8",
+      "unique_count": 7,
+      "description": "Number of team members working at the site during the unsafe event."
+    },
+    "workload_work_duration_hours": {
+      "data_type": "numeric",
+      "min": "1.0",
+      "max": "12.0",
+      "unique_count": 111,
+      "description": "Duration of work in hours at the time of the unsafe event occurrence."
+    },
+    "db_uploaded_date": {
+      "data_type": "timestamp without time zone",
+      "description": "Timestamp when the record was uploaded to the database."
+    },
+    "id": {
+      "data_type": "integer",
+      "description": "Unique identifier for each row in the table."
+    },
+    "created_at": {
+      "data_type": "timestamp with time zone",
+      "description": "Timestamp when the record was created."
+    },
+    "updated_at": {
+      "data_type": "timestamp with time zone",
+      "note": "No non-null values found",
+      "description": "Timestamp when the record was last updated."
+    }
+  }
+
+}
+
+
+
+
+
+
+
+
+
