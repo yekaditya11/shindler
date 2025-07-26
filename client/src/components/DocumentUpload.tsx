@@ -107,7 +107,7 @@ export const DocumentUpload = ({ onUploadComplete }: DocumentUploadProps) => {
 
       toast({
         title: "File Processed Successfully",
-        description: `${file.name} - Schema: ${result.schema_type}, Rows: ${result.processed_rows}`,
+        description: `${file.name} - Schema: ${result.schema_type}, Rows: ${result.processed_rows}. 🔍 Health analysis starting automatically...`,
       });
 
       return result;

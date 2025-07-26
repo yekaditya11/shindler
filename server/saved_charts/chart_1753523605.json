@@ -1,13 +1,9 @@
 {
-  "id": "chart_1753514138",
-  "title": "New tradejh",
+  "id": "chart_1753523605",
+  "title": "montly trend",
   "description": "",
-  "timestamp": "2025-07-26T12:45:38.788462",
+  "timestamp": "2025-07-26T15:23:25.739595",
   "chart_data": {
-    "title": {
-      "text": "Unsafe Events Reported Monthly",
-      "left": "center"
-    },
     "tooltip": {
       "trigger": "axis",
       "axisPointer": {
@@ -30,11 +26,11 @@
     },
     "yAxis": {
       "type": "value",
-      "name": "Total Events Reported"
+      "name": "Total Unsafe Events"
     },
     "series": [
       {
-        "name": "Unsafe Events",
+        "name": "Total Unsafe Events",
         "type": "bar",
         "data": [
           770,

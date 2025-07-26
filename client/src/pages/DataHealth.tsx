@@ -13,10 +13,21 @@ import { useAppState } from "@/contexts/AppStateContext";
 
 const DataHealth = () => {
   const navigate = useNavigate();
-  const { detectedSchema } = useAppState();
-  const [healthData, setHealthData] = useState<HealthReport | null>(null);
-  const [loading, setLoading] = useState(true);
+  const { detectedSchema, healthReport, isHealthReportLoading, refreshHealthReport } = useAppState();
+  const [localHealthData, setLocalHealthData] = useState<HealthReport | null>(null);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  // Use cached health report if available, otherwise show it's being analyzed
+  useEffect(() => {
+    if (healthReport) {
+      setLocalHealthData(healthReport);
+      setError(null);
+    } else if (!isHealthReportLoading && detectedSchema) {
+      // If no cached data and not loading in background, we might need to fetch
+      fetchHealthData();
+    }
+  }, [healthReport, isHealthReportLoading, detectedSchema]);
 
   const fetchHealthData = async () => {
     try {
@@ -27,8 +38,7 @@ const DataHealth = () => {
       const schemaToUse: SchemaType = detectedSchema || 'srs';
       
       const response = await dataHealthApi.getDataHealthLLM(schemaToUse);
-      // httpClient extracts the body, so response should contain health_report directly
-      setHealthData(response.health_report);
+      setLocalHealthData(response.health_report);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to fetch data health information");
     } finally {
@@ -36,9 +46,13 @@ const DataHealth = () => {
     }
   };
 
-  useEffect(() => {
-    fetchHealthData();
-  }, [detectedSchema]); // Re-fetch when schema changes
+  const handleRefresh = async () => {
+    if (detectedSchema) {
+      await refreshHealthReport();
+    } else {
+      await fetchHealthData();
+    }
+  };
 
   const getHealthGradeColor = (grade: string) => {
     switch (grade.toLowerCase()) {
@@ -90,7 +104,8 @@ const DataHealth = () => {
     }
   };
 
-  if (loading) {
+  // Show loading state when actively fetching (not background loading)
+  if (loading || (isHealthReportLoading && !localHealthData)) {
     return (
       <div className="min-h-screen bg-background p-4 md:p-6 lg:p-8">
         <div className="max-w-7xl mx-auto">
@@ -98,28 +113,30 @@ const DataHealth = () => {
             <Button variant="ghost" size="sm" onClick={() => navigate("/dashboard")}>
               <ArrowLeft className="h-4 w-4" />
             </Button>
-                      <div>
-            <h1 className="text-2xl md:text-3xl font-bold">Data Health Assessment</h1>
-            <p className="text-muted-foreground">
-              Monitor and maintain data quality across your systems
-              {detectedSchema && (
-                <span className="ml-2">
-                  • Schema: <span className="font-medium capitalize">{detectedSchema.replace('_', ' ')}</span>
-                </span>
-              )}
-            </p>
-            {!detectedSchema && (
-              <p className="text-sm text-orange-600 mt-1">
-                ⚠️ Using default schema (srs) - upload data to detect actual schema
+            <div>
+              <h1 className="text-2xl md:text-3xl font-bold">Data Health Assessment</h1>
+              <p className="text-muted-foreground">
+                Monitor and maintain data quality across your systems
+                {detectedSchema && (
+                  <span className="ml-2">
+                    • Schema: <span className="font-medium capitalize">{detectedSchema.replace('_', ' ')}</span>
+                  </span>
+                )}
               </p>
-            )}
-          </div>
+              {!detectedSchema && (
+                <p className="text-sm text-orange-600 mt-1">
+                  ⚠️ Using default schema (srs) - upload data to detect actual schema
+                </p>
+              )}
+            </div>
           </div>
           
           <div className="flex items-center justify-center py-16">
             <div className="flex items-center gap-3">
               <Brain className="h-6 w-6 text-blue-600 animate-pulse" />
-              <span className="text-lg text-muted-foreground">LLM is analyzing</span>
+              <span className="text-lg text-muted-foreground">
+                {isHealthReportLoading ? "AI is analyzing your data..." : "Loading health assessment..."}
+              </span>
             </div>
           </div>
         </div>
@@ -135,22 +152,22 @@ const DataHealth = () => {
             <Button variant="ghost" size="sm" onClick={() => navigate("/dashboard")}>
               <ArrowLeft className="h-4 w-4" />
             </Button>
-                      <div>
-            <h1 className="text-2xl md:text-3xl font-bold">Data Health</h1>
-            <p className="text-muted-foreground">
-              Monitor and maintain data quality across your systems
-              {detectedSchema && (
-                <span className="ml-2">
-                  • Schema: <span className="font-medium capitalize">{detectedSchema.replace('_', ' ')}</span>
-                </span>
-              )}
-            </p>
-            {!detectedSchema && (
-              <p className="text-sm text-orange-600 mt-1">
-                ⚠️ Using default schema (srs) - upload data to detect actual schema
+            <div>
+              <h1 className="text-2xl md:text-3xl font-bold">Data Health</h1>
+              <p className="text-muted-foreground">
+                Monitor and maintain data quality across your systems
+                {detectedSchema && (
+                  <span className="ml-2">
+                    • Schema: <span className="font-medium capitalize">{detectedSchema.replace('_', ' ')}</span>
+                  </span>
+                )}
               </p>
-            )}
-          </div>
+              {!detectedSchema && (
+                <p className="text-sm text-orange-600 mt-1">
+                  ⚠️ Using default schema (srs) - upload data to detect actual schema
+                </p>
+              )}
+            </div>
           </div>
           <Alert className="border-red-200 bg-red-50">
             <XCircle className="h-4 w-4 text-red-600" />
@@ -158,20 +175,47 @@ const DataHealth = () => {
               Error loading data health information: {error}
             </AlertDescription>
           </Alert>
-                     <div className="mt-4">
-             <Button onClick={fetchHealthData} variant="outline">
-               <RefreshCw className="h-4 w-4 mr-2" />
-               Try Again
-             </Button>
-           </div>
+          <div className="mt-4">
+            <Button onClick={handleRefresh} variant="outline">
+              <RefreshCw className="h-4 w-4 mr-2" />
+              Try Again
+            </Button>
+          </div>
         </div>
       </div>
     );
   }
 
-  if (!healthData) return null;
+  if (!localHealthData) {
+    return (
+      <div className="min-h-screen bg-background p-4 md:p-6 lg:p-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-center gap-4 mb-6">
+            <Button variant="ghost" size="sm" onClick={() => navigate("/dashboard")}>
+              <ArrowLeft className="h-4 w-4" />
+            </Button>
+            <div>
+              <h1 className="text-2xl md:text-3xl font-bold">Data Health Assessment</h1>
+              <p className="text-muted-foreground">
+                No health data available. Upload some data to get started.
+              </p>
+            </div>
+          </div>
+          
+          {!detectedSchema && (
+            <Alert>
+              <Info className="h-4 w-4" />
+              <AlertDescription>
+                Upload data files to automatically trigger health analysis and see detailed insights.
+              </AlertDescription>
+            </Alert>
+          )}
+        </div>
+      </div>
+    );
+  }
 
-  const criticalColumns = Object.entries(healthData.column_analysis).filter(
+  const criticalColumns = Object.entries(localHealthData.column_analysis).filter(
     ([, analysis]) => analysis.priority === "critical"
   );
 
@@ -179,32 +223,55 @@ const DataHealth = () => {
     <div className="min-h-screen bg-background p-4 md:p-6 lg:p-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="flex items-center gap-4 mb-6">
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => navigate("/dashboard")}
-            className="p-2"
-          >
-            <ArrowLeft className="h-4 w-4" />
-          </Button>
-          <div>
-            <h1 className="text-2xl md:text-3xl font-bold">Data Health Assessment</h1>
-            <p className="text-muted-foreground">
-              LLM-enhanced data quality monitoring • {healthData.total_records.toLocaleString()} records analyzed
-              {detectedSchema && (
-                <span className="ml-2">
-                  • Schema: <span className="font-medium capitalize">{detectedSchema.replace('_', ' ')}</span>
-                </span>
-              )}
-            </p>
-            {!detectedSchema && (
-              <p className="text-sm text-orange-600 mt-1">
-                ⚠️ Using default schema (srs) - upload data to detect actual schema
+        <div className="flex items-center justify-between gap-4 mb-6">
+          <div className="flex items-center gap-4">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => navigate("/dashboard")}
+              className="p-2"
+            >
+              <ArrowLeft className="h-4 w-4" />
+            </Button>
+            <div>
+              <h1 className="text-2xl md:text-3xl font-bold">Data Health Assessment</h1>
+              <p className="text-muted-foreground">
+                LLM-enhanced data quality monitoring • {localHealthData.total_records.toLocaleString()} records analyzed
+                {detectedSchema && (
+                  <span className="ml-2">
+                    • Schema: <span className="font-medium capitalize">{detectedSchema.replace('_', ' ')}</span>
+                  </span>
+                )}
               </p>
-            )}
+              {!detectedSchema && (
+                <p className="text-sm text-orange-600 mt-1">
+                  ⚠️ Using default schema (srs) - upload data to detect actual schema
+                </p>
+              )}
+            </div>
           </div>
+          
+          {/* Refresh Button */}
+          <Button 
+            onClick={handleRefresh} 
+            variant="outline" 
+            size="sm"
+            disabled={isHealthReportLoading}
+          >
+            <RefreshCw className={`h-4 w-4 mr-2 ${isHealthReportLoading ? 'animate-spin' : ''}`} />
+            {isHealthReportLoading ? 'Analyzing...' : 'Refresh'}
+          </Button>
         </div>
+
+        {/* Background Analysis Indicator */}
+        {isHealthReportLoading && localHealthData && (
+          <Alert className="mb-6 border-blue-200 bg-blue-50">
+            <Brain className="h-4 w-4 text-blue-600 animate-pulse" />
+            <AlertDescription className="text-blue-800">
+              🔄 AI is analyzing your latest data in the background. Results will update automatically.
+            </AlertDescription>
+          </Alert>
+        )}
 
         {/* Overall Health Score */}
         <Card className="mb-6">
@@ -213,23 +280,23 @@ const DataHealth = () => {
               <div>
                 <h2 className="text-xl font-semibold">Overall Data Health Score</h2>
                 <p className="text-muted-foreground">
-                  LLM-enhanced assessment • {new Date(healthData.assessment_timestamp).toLocaleDateString()}
+                  LLM-enhanced assessment • {new Date(localHealthData.assessment_timestamp).toLocaleDateString()}
                 </p>
               </div>
               <div className="flex items-center gap-3">
-                {getHealthIcon(healthData.overall_health.grade)}
+                {getHealthIcon(localHealthData.overall_health.grade)}
                 <div className="text-right">
-                  <div className="text-3xl font-bold">{healthData.overall_health.score}%</div>
-                  <Badge className={getHealthGradeColor(healthData.overall_health.grade)}>
-                    {healthData.overall_health.grade}
+                  <div className="text-3xl font-bold">{localHealthData.overall_health.score}%</div>
+                  <Badge className={getHealthGradeColor(localHealthData.overall_health.grade)}>
+                    {localHealthData.overall_health.grade}
                   </Badge>
                 </div>
               </div>
             </div>
-            <Progress value={healthData.overall_health.score} className="h-3 mb-4" />
+            <Progress value={localHealthData.overall_health.score} className="h-3 mb-4" />
             
             {/* LLM Insights Summary */}
-            {healthData.llm_insights && (
+            {localHealthData.llm_insights && (
               <div className="mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
                 <div className="flex items-center gap-2 mb-2">
                   <Brain className="h-4 w-4 text-blue-600" />
@@ -238,21 +305,21 @@ const DataHealth = () => {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
                   <div>
                     <span className="text-blue-600">Columns Analyzed:</span>
-                    <div className="font-semibold">{healthData.llm_insights.total_columns_analyzed}</div>
+                    <div className="font-semibold">{localHealthData.llm_insights.total_columns_analyzed}</div>
                   </div>
                   <div>
                     <span className="text-blue-600">Intelligent Selections:</span>
-                    <div className="font-semibold">{healthData.llm_insights.dimension_selections_made}</div>
+                    <div className="font-semibold">{localHealthData.llm_insights.dimension_selections_made}</div>
                   </div>
-                  {healthData.performance_metrics && (
+                  {localHealthData.performance_metrics && (
                     <>
                       <div>
                         <span className="text-blue-600">Processing Time:</span>
-                        <div className="font-semibold">{healthData.performance_metrics.total_processing_time_seconds.toFixed(1)}s</div>
+                        <div className="font-semibold">{localHealthData.performance_metrics.total_processing_time_seconds.toFixed(1)}s</div>
                       </div>
                       <div>
                         <span className="text-blue-600">Parallel Processing:</span>
-                        <div className="font-semibold">{healthData.performance_metrics.parallel_processing_enabled ? "Enabled" : "Disabled"}</div>
+                        <div className="font-semibold">{localHealthData.performance_metrics.parallel_processing_enabled ? "Enabled" : "Disabled"}</div>
                       </div>
                     </>
                   )}
@@ -264,14 +331,14 @@ const DataHealth = () => {
 
         {/* Dimension Scores */}
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-6">
-          {Object.entries(healthData.overall_health.dimensions).map(([dimension, data]) => (
+          {Object.entries(localHealthData.overall_health.dimensions).map(([dimension, data]) => (
             <Card key={dimension} className="shadow-card">
               <CardHeader className="pb-3">
                 <div className="flex items-center justify-between">
-                                     <div className="flex items-center gap-2">
-                     {getDimensionIcon(dimension)}
-                     <CardTitle className="text-sm capitalize">{dimension}</CardTitle>
-                   </div>
+                  <div className="flex items-center gap-2">
+                    {getDimensionIcon(dimension)}
+                    <CardTitle className="text-sm capitalize">{dimension}</CardTitle>
+                  </div>
                 </div>
               </CardHeader>
               <CardContent className="pt-0">
@@ -309,19 +376,19 @@ const DataHealth = () => {
               <CardContent>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-green-600">{healthData.summary.critical_fields.healthy}</div>
+                    <div className="text-2xl font-bold text-green-600">{localHealthData.summary.critical_fields.healthy}</div>
                     <div className="text-sm text-muted-foreground">Healthy (≥80%)</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-yellow-600">{healthData.summary.critical_fields.warning}</div>
+                    <div className="text-2xl font-bold text-yellow-600">{localHealthData.summary.critical_fields.warning}</div>
                     <div className="text-sm text-muted-foreground">Warning (60-79%)</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-red-600">{healthData.summary.critical_fields.critical}</div>
+                    <div className="text-2xl font-bold text-red-600">{localHealthData.summary.critical_fields.critical}</div>
                     <div className="text-sm text-muted-foreground">Critical (&lt;60%)</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold">{healthData.summary.critical_fields.avg_score.toFixed(1)}%</div>
+                    <div className="text-2xl font-bold">{localHealthData.summary.critical_fields.avg_score.toFixed(1)}%</div>
                     <div className="text-sm text-muted-foreground">Average Score</div>
                   </div>
                 </div>
@@ -335,7 +402,7 @@ const DataHealth = () => {
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  {healthData.summary.top_issues.map((issue, index) => (
+                  {localHealthData.summary.top_issues.map((issue, index) => (
                     <div key={index} className="flex items-start gap-4 p-4 border border-border rounded-lg">
                       <Badge className={getSeverityColor(issue.severity)}>
                         {issue.severity}
@@ -403,7 +470,7 @@ const DataHealth = () => {
               </CardHeader>
               <CardContent>
                 <div className="space-y-4 max-h-96 overflow-y-auto">
-                  {Object.entries(healthData.column_analysis).map(([columnName, analysis]) => (
+                  {Object.entries(localHealthData.column_analysis).map(([columnName, analysis]) => (
                     <div key={columnName} className="p-4 border border-border rounded-lg">
                       <div className="flex items-center justify-between mb-3">
                         <h4 className="font-medium">{columnName}</h4>
@@ -453,7 +520,7 @@ const DataHealth = () => {
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-2">
-                    {healthData.summary.recommendations.immediate.map((recommendation, index) => (
+                    {localHealthData.summary.recommendations.immediate.map((recommendation, index) => (
                       <li key={index} className="flex items-start gap-2">
                         <AlertTriangle className="h-4 w-4 text-red-500 mt-0.5 flex-shrink-0" />
                         <span className="text-sm">{recommendation}</span>
@@ -469,7 +536,7 @@ const DataHealth = () => {
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-2">
-                    {healthData.summary.recommendations.short_term.map((recommendation, index) => (
+                    {localHealthData.summary.recommendations.short_term.map((recommendation, index) => (
                       <li key={index} className="flex items-start gap-2">
                         <TrendingUp className="h-4 w-4 text-yellow-500 mt-0.5 flex-shrink-0" />
                         <span className="text-sm">{recommendation}</span>
@@ -485,7 +552,7 @@ const DataHealth = () => {
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-2">
-                    {healthData.summary.recommendations.long_term.map((recommendation, index) => (
+                    {localHealthData.summary.recommendations.long_term.map((recommendation, index) => (
                       <li key={index} className="flex items-start gap-2">
                         <Target className="h-4 w-4 text-blue-500 mt-0.5 flex-shrink-0" />
                         <span className="text-sm">{recommendation}</span>
@@ -495,7 +562,7 @@ const DataHealth = () => {
                 </CardContent>
               </Card>
 
-              {healthData.summary.recommendations.llm_recommendations && (
+              {localHealthData.summary.recommendations.llm_recommendations && (
                 <Card>
                   <CardHeader>
                     <CardTitle className="text-purple-600 flex items-center gap-2">
@@ -505,7 +572,7 @@ const DataHealth = () => {
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-2">
-                      {healthData.summary.recommendations.llm_recommendations.map((recommendation, index) => (
+                      {localHealthData.summary.recommendations.llm_recommendations.map((recommendation, index) => (
                         <li key={index} className="flex items-start gap-2">
                           <Zap className="h-4 w-4 text-purple-500 mt-0.5 flex-shrink-0" />
                           <span className="text-sm">{recommendation}</span>
@@ -520,7 +587,7 @@ const DataHealth = () => {
 
           <TabsContent value="insights" className="space-y-6">
             {/* LLM Insights */}
-            {healthData.summary.llm_insights && (
+            {localHealthData.summary.llm_insights && (
               <div className="grid gap-6">
                 <Card>
                   <CardHeader>
@@ -533,25 +600,25 @@ const DataHealth = () => {
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                       <div className="text-center">
                         <div className="text-2xl font-bold text-blue-600">
-                          {healthData.summary.llm_insights.dimension_optimization.total_possible_checks}
+                          {localHealthData.summary.llm_insights.dimension_optimization.total_possible_checks}
                         </div>
                         <div className="text-sm text-muted-foreground">Possible Checks</div>
                       </div>
                       <div className="text-center">
                         <div className="text-2xl font-bold text-green-600">
-                          {healthData.summary.llm_insights.dimension_optimization.total_actual_checks}
+                          {localHealthData.summary.llm_insights.dimension_optimization.total_actual_checks}
                         </div>
                         <div className="text-sm text-muted-foreground">Actual Checks</div>
                       </div>
                       <div className="text-center">
                         <div className="text-2xl font-bold text-orange-600">
-                          {healthData.summary.llm_insights.dimension_optimization.checks_skipped}
+                          {localHealthData.summary.llm_insights.dimension_optimization.checks_skipped}
                         </div>
                         <div className="text-sm text-muted-foreground">Checks Skipped</div>
                       </div>
                       <div className="text-center">
                         <div className="text-2xl font-bold text-purple-600">
-                          {healthData.summary.llm_insights.dimension_optimization.optimization_percentage.toFixed(1)}%
+                          {localHealthData.summary.llm_insights.dimension_optimization.optimization_percentage.toFixed(1)}%
                         </div>
                         <div className="text-sm text-muted-foreground">Optimization</div>
                       </div>
@@ -565,7 +632,7 @@ const DataHealth = () => {
                   </CardHeader>
                   <CardContent>
                     <div className="grid grid-cols-3 gap-4">
-                      {Object.entries(healthData.summary.llm_insights.priority_distribution).map(([priority, count]) => (
+                      {Object.entries(localHealthData.summary.llm_insights.priority_distribution).map(([priority, count]) => (
                         <div key={priority} className="text-center">
                           <div className="text-2xl font-bold">{count}</div>
                           <div className="text-sm text-muted-foreground capitalize">{priority} Priority</div>
@@ -581,7 +648,7 @@ const DataHealth = () => {
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
-                      {Object.entries(healthData.summary.llm_insights.intelligent_skips.skip_counts).map(([dimension, count]) => (
+                      {Object.entries(localHealthData.summary.llm_insights.intelligent_skips.skip_counts).map(([dimension, count]) => (
                         <div key={dimension} className="flex items-center justify-between p-3 bg-gray-50 rounded">
                           <span className="font-medium capitalize">{dimension}</span>
                           <Badge variant="outline">{count} columns skipped</Badge>

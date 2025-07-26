@@ -111,7 +111,7 @@ class DatabaseService:
             logger.info(f"Successfully cleared current month data from {model_class.__tablename__}")
 
             # Insert new data in batches
-            batch_size = 1000
+            batch_size = 2000
             processed_rows = 0
             failed_rows = 0
             for i in range(0, len(df), batch_size):
